@@ -1,5 +1,5 @@
-package repository;
-import model.Post;
+package ru.netology.repository;
+import ru.netology.model.Post;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

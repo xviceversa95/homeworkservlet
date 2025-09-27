@@ -1,14 +1,12 @@
-package servlet;
+package ru.netology.servlet;
 
-import controller.PostController;
-import repository.PostRepository;
-import service.PostService;
+import ru.netology.controller.PostController;
+import ru.netology.repository.PostRepository;
+import ru.netology.service.PostService;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
 public class MainServlet extends HttpServlet {
     private PostController controller;
