@@ -7,13 +7,12 @@ import ru.netology.service.PostService;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Reader;
-
-public class PostController {
+public class PostControllerStub {
     //тут работаем с запросами, сериализуем и десериализуем
     public static final String APPLICATION_JSON = "application/json";
     private final PostService service;
 
-    public PostController(PostService service){
+    public PostControllerStub(PostService service){
         this.service = service;
     }
 
