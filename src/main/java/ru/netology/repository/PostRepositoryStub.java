@@ -1,4 +1,5 @@
 package ru.netology.repository;
+//import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Repository;
 import ru.netology.model.Post;
 
@@ -7,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 //реализация хранилища, здесь напрямую взаимодействуем с "базой"
 @Repository
-public class PostRepository {
+public class PostRepositoryStub implements PostRepository {
 
     public ConcurrentHashMap<Long, Post> repository = new ConcurrentHashMap<>();
     public long postsCounter = 0;

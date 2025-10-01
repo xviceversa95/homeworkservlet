@@ -1,18 +1,21 @@
 package ru.netology.controller;
 
 import com.google.gson.Gson;
+import org.springframework.stereotype.Controller;
 import ru.netology.model.Post;
 import ru.netology.service.PostService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Reader;
-public class PostControllerStub {
+
+@Controller
+public class PostController {
     //тут работаем с запросами, сериализуем и десериализуем
     public static final String APPLICATION_JSON = "application/json";
     private final PostService service;
 
-    public PostControllerStub(PostService service){
+    public PostController(PostService service){
         this.service = service;
     }
 
@@ -48,3 +51,4 @@ public class PostControllerStub {
         response.getWriter().print("Deleted" + "id:" + id);
     }
 }
+
