@@ -2,15 +2,15 @@ package ru.netology.service;
 
 import ru.netology.exception.NotFoundException;
 import ru.netology.model.Post;
-import ru.netology.repository.PostRepository;
+import ru.netology.repository.PostRepositoryStub;
 
 import java.util.List;
 //тут у нас бизнес-логика, нет прямого контакта с БД, всё через методы репозитория
 
 public class PostService {
-    private final PostRepository repository;
+    private final PostRepositoryStub repository;
 
-    public PostService(PostRepository repository) {
+    public PostService(PostRepositoryStub repository) {
         this.repository = repository;
     }
 

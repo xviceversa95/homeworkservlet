@@ -1,50 +1,17 @@
 package ru.netology.repository;
+
 import ru.netology.model.Post;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.List;
+import java.util.Optional;
 
-//реализация хранилища, здесь напрямую взаимодействуем с "базой"
-public class PostRepository {
+public interface PostRepository {
 
-    public ConcurrentHashMap<Long, Post> repository = new ConcurrentHashMap<>();
-    public long postsCounter = 0;
+    public List<Post> all();
 
-    //возвращает весь список постов
-    public List<Post> all(){
-        List<Post> postList = new ArrayList<>();
-        for (Map.Entry<Long, Post> entry : repository.entrySet()) {
-            postList.add(entry.getValue());
-        }
-        return postList;
-    }
+    public Optional<Post> getById(long id);
 
-    //возвращает конкретный пост по id
-    public Optional<Post> getById(long id){
-        return Optional.ofNullable(repository.get(id));
-    }
+    public Post save(Post post);
 
-    //сохраняем в мапу конкретный пост и вернуть его
-    public Post save(Post post){
-        if (post.getId() == 0) {
-            postsCounter += 1;
-            post.setId(postsCounter);
-            repository.put(postsCounter, post);
-            return repository.get(postsCounter);
-        } else {
-            if (repository.containsKey(post.getId())) {
-                repository.replace(post.getId(), post);
-                return repository.get(post.getId());
-            } else {
-                postsCounter += 1;
-                post.setId(postsCounter);
-                repository.put(postsCounter, post);
-                return repository.get(postsCounter);
-            }
-        }
-    }
-
-    public void removeById(long id){
-        repository.remove(id);
-    }
+    public void removeById(long id);
 }
